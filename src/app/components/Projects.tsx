@@ -41,10 +41,10 @@ export default function Projects() {
         {MyProject.map((project, index) => (
           <motion.div
             key={project.id}
-            initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+            initial={{ opacity: 0, y: 20, filter: window.innerWidth >= 768 ? "blur(8px)" : "blur(2px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true, margin: "-100px 0px -100px 0px" }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: window.innerWidth > 768 ? 0.5 : 0.3 }}
             className="group relative"
           >
             <div className="absolute -left-5 top-0 bottom-0 w-px bg-linear-to-b from-blue-500/40 to-transparent hidden md:block" />
