@@ -153,7 +153,7 @@ export default function Window() {
             />
           </aside>
 
-          <div ref={containerRef} className="flex-1 overflow-hidden relative">
+          <div ref={containerRef} className="flex-1 overflow-y-auto relative">
             <div ref={contentRef}>
               <div
                 className="absolute inset-0 w-full h-full opacity-[0.025] pointer-events-none"
