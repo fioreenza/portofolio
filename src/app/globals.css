@@ -37,6 +37,11 @@
   );
 }
 
+* {
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
+}
+
 @theme inline {
   --font-jetbrains: var(--font-jetbrains);
   --font-urban: var(--font-urbanist);
