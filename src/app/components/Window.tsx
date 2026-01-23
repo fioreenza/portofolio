@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Lenis from "lenis";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, ChevronDown, ChevronsRight, X } from "lucide-react";
@@ -18,34 +17,6 @@ export default function Window() {
 
   const [activeSection, setActiveSection] = useState<NavItem>("about");
   const containerRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!containerRef.current || !contentRef.current) return;
-
-    const lenis = new Lenis({
-      wrapper: containerRef.current,
-      content: contentRef.current,
-
-      duration: 1.4,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 1.2,
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
 
   const scrollToSection = useCallback((id: NavItem) => {
     const container = containerRef.current;
@@ -154,38 +125,36 @@ export default function Window() {
           </aside>
 
           <div ref={containerRef} className="flex-1 overflow-y-auto relative">
-            <div ref={contentRef}>
-              <div
-                className="absolute inset-0 w-full h-full opacity-[0.025] pointer-events-none"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
-                  backgroundSize: "120px 120px",
-                  backgroundRepeat: "repeat",
-                }}
-              />
+            <div
+              className="absolute inset-0 w-full h-full opacity-[0.025] pointer-events-none"
+              style={{
+                backgroundImage:
+                  "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
+                backgroundSize: "120px 120px",
+                backgroundRepeat: "repeat",
+              }}
+            />
 
-              {sections.map((section) => (
-                <section
-                  key={section.id}
-                  id={section.id}
-                  className={`
+            {sections.map((section) => (
+              <section
+                key={section.id}
+                id={section.id}
+                className={`
                     overflow-x-hidden px-8 md:px-12 mb-20  overflow-hidden
                     ${section.id === "about" ? "h-[75vh] lg:max-h-150" : "min-h-[75vh]"}
                   `}
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.45 }}
+                  className="w-full max-w-4xl mx-auto h-full"
                 >
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-80px" }}
-                    transition={{ duration: 0.45 }}
-                    className="w-full max-w-4xl mx-auto h-full"
-                  >
-                    {section.component}
-                  </motion.div>
-                </section>
-              ))}
-            </div>
+                  {section.component}
+                </motion.div>
+              </section>
+            ))}
           </div>
         </div>
       </div>
