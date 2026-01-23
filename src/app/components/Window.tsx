@@ -65,7 +65,7 @@ export default function Window() {
       initial={{ opacity: 0, scale: 0.95, y: 30 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.6, type: "spring", bounce: 0.3 }}
-      className="relative w-[90vw] max-w-6xl h-[88vh] lg:max-h-170 bg-slate-900/90 backdrop-blur-2xl rounded-xl shadow-window border-2 border-xp-blue/30 flex flex-col overflow-hidden"
+      className="relative w-[90vw] max-w-6xl h-[88dvh] lg:max-h-170 bg-slate-900/90 backdrop-blur-2xl rounded-xl shadow-window border-2 border-xp-blue/30 flex flex-col overflow-hidden"
     >
       <div className="flex items-center justify-between h-9 px-2 bg-xp-header shadow-xp-header">
         <div className="flex items-center gap-2">
