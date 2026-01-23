@@ -18,6 +18,23 @@ export default function Window() {
   const [activeSection, setActiveSection] = useState<NavItem>("about");
   const containerRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      const scrollSpeed = 4;
+      container.scrollTop += e.deltaY * scrollSpeed;
+    };
+
+    container.addEventListener("wheel", handleWheel, { passive: false });
+
+    return () => {
+      container.removeEventListener("wheel", handleWheel);
+    };
+  }, []);
+
   const scrollToSection = useCallback((id: NavItem) => {
     const container = containerRef.current;
     const target = document.getElementById(id);
