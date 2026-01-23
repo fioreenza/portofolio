@@ -1,26 +1,87 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-xp-blue: #0055ea;
+  --color-xp-dark-blue: #003399;
+  --color-xp-green: #3d9e34;
+  --color-xp-red: #e93b2d;
+  --color-xp-orange: #f27d27;
+
+  --shadow-window:
+    0 0 0 1px rgba(255, 255, 255, 0.1), 0 30px 60px -10px rgba(0, 0, 0, 0.6);
+
+  --text-shadow-xp-header: 0 1px 3px rgba(0, 0, 0, 0.6);
+
+  --shadow-xp-header:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+
+  --background-image-bliss: linear-gradient(
+    to bottom,
+    #1e3c72 0%,
+    #2a5298 50%,
+    #243b55 100%
+  );
+
+  --background-image-xp-header: linear-gradient(
+    180deg,
+    #2b7de9 0%,
+    #1153c9 10%,
+    #104eba 60%,
+    #06308c 100%
+  );
+
+  --background-image-task-header: linear-gradient(
+    90deg,
+    #2b7de9 0%,
+    #1153c9 100%
+  );
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-jetbrains: var(--font-jetbrains);
+  --font-urban: var(--font-urbanist);
+  --font-sans: var(--font-jakarta);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+::-webkit-scrollbar {
+  width: 5px;
+  background: #d6dff7;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, #f4f7ff 0%, #d6dff7 100%);
+  border-left: 1px solid #9aa9e6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #cfe3ff 0%, #7aa7f7 45%, #4b79e6 100%);
+
+  border: 1px solid #3056b3;
+
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.9),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #e6f0ff 0%, #8fb6ff 45%, #5a86f0 100%);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #7aa7f7 0%, #4b79e6 100%);
+
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+@layer components {
+  .xp-highlight {
+    background: linear-gradient(180deg, #a7ddff 0%, #5bbcf0 45%, #2f88b8 100%);
+
+    border-radius: 6px;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  .xp-text {
+    color: #f1f5f9;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  }
 }
