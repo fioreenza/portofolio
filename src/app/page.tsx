@@ -18,7 +18,7 @@ export default function Home() {
       </AnimatePresence>
 
       {booted && (
-        <main className="font-sans w-full h-screen relative flex items-center justify-center overflow-hidden">
+        <main className="font-sans w-full h-dvh relative flex items-center justify-center overflow-hidden">
           <Image
             src="/background.jpg"
             alt="wallpaper"
@@ -27,7 +27,7 @@ export default function Home() {
             className="object-cover z-0 brightness-30"
           />
 
-          <div className="z-10 w-full flex items-center justify-center pb-10">
+          <div className="z-10 w-full h-full flex items-center justify-center pb-12">
             <Window />
           </div>
 
