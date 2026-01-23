@@ -114,7 +114,7 @@ export const MyProject: Project[] = [
     year: "2025",
     description:
       "Established the frontend foundation for final project, including architecture setup, reusable components, and linting standards, while implementing quiz gameplay, giving reviews, and managing pull requests.",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Axios", "ESLint"],
+    techStack: ["Vue.js", "TypeScript", "Tailwind CSS", "Axios", "ESLint"],
     features: [
       "Frontend architecture",
       "Quiz game mechanics",
