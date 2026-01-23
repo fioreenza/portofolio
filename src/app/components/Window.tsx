@@ -27,10 +27,11 @@ export default function Window() {
       wrapper: containerRef.current,
       content: contentRef.current,
 
-      duration: 1.4, // makin besar makin lama
+      duration: 1.4,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
 
       smoothWheel: true,
+      smoothTouch: true,
       wheelMultiplier: 1,
       touchMultiplier: 1.2,
     });
