@@ -97,7 +97,7 @@ export default function Window() {
           <div className="flex items-center flex-1 bg-white border border-[#a19f94] shadow-inner px-2 py-0.5 text-xs">
             <Image src="/explorer-file.png" alt="file" width={14} height={14} />
             <input
-              value="www.fiorenza.com"
+              value="https://fiorenza.site"
               readOnly
               className="flex-1 outline-none ml-2 bg-transparent"
             />
