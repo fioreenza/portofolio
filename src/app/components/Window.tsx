@@ -24,7 +24,7 @@ export default function Window() {
 
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
-      const scrollSpeed = 10;
+      const scrollSpeed = 6;
       container.scrollTop += e.deltaY * scrollSpeed;
     };
 
